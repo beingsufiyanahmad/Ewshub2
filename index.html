@@ -9,158 +9,197 @@
 <meta property="og:description" content="Join EWSHUB to discover digital opportunities, campaign updates, referral opportunities and verified community updates.">
 <meta name="theme-color" content="#020B08">
 <style>
-:root{--bg:#020B08;--em:#10f2a0;--teal:#14b8a6;--gold:#f5c451;--tx:#f2fbf7;--mu:#8aa89c;--glass:rgba(14,36,29,.6);--bd:rgba(16,242,160,.2)}
+:root{--bg:#020B08;--em:#10f2a0;--teal:#14b8a6;--gold:#f5c451;--tx:#f2fbf7;--mu:#8aa89c;--glass:rgba(14,36,29,.55);--bd:rgba(16,242,160,.2)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden}
-body{background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;line-height:1.35}
-.bg{position:fixed;inset:0;z-index:-1}
+body{background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;line-height:1.35;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
 .bg:before{content:"";position:absolute;width:520px;height:520px;left:50%;top:-140px;transform:translateX(-50%);background:radial-gradient(circle,rgba(16,242,160,.22),transparent 65%)}
-.bg:after{content:"";position:absolute;width:380px;height:380px;left:50%;bottom:8%;transform:translateX(-50%);background:radial-gradient(circle,rgba(245,196,81,.08),transparent 65%)}
+.bg:after{content:"";position:absolute;width:380px;height:380px;left:50%;bottom:6%;transform:translateX(-50%);background:radial-gradient(circle,rgba(245,196,81,.08),transparent 65%)}
 .p{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--em);opacity:.25;animation:drift linear infinite}
 @keyframes drift{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
 @keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,242,160,.6)}100%{box-shadow:0 0 0 8px rgba(16,242,160,0)}}
 @keyframes glow{0%,100%{box-shadow:0 6px 24px rgba(16,242,160,.3)}50%{box-shadow:0 6px 38px rgba(16,242,160,.55)}}
-@keyframes pop{from{opacity:.2;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
 @keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.wrap{height:100%;height:100dvh;max-width:480px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px calc(env(safe-area-inset-bottom,0px) + 10px);display:flex;flex-direction:column;justify-content:space-between;text-align:center;animation:up .7s both}
-.live{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--em)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--em);animation:pulse 1.6s infinite;display:inline-block}
-.logo{width:56px;height:56px;margin:0 auto 6px;border-radius:18px;background:linear-gradient(145deg,rgba(20,50,40,.9),rgba(4,14,11,.95));border:1px solid rgba(16,242,160,.5);box-shadow:0 0 24px rgba(16,242,160,.25);display:grid;place-items:center;animation:float 5s ease-in-out infinite}
-h1.name{font-size:30px;font-weight:800;letter-spacing:.03em;line-height:1.1}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+main{max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:calc(10px + env(safe-area-inset-top)) 14px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:space-between;gap:8px;animation:up .6s both}
+.head{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(20,50,40,.9),rgba(4,14,11,.95));border:1px solid rgba(16,242,160,.5);box-shadow:0 0 20px rgba(16,242,160,.25);display:grid;place-items:center;flex:none}
+.name{font-size:22px;font-weight:800;letter-spacing:.02em;line-height:1}
 .name span{color:var(--em)}
-.tag{font-size:9.5px;letter-spacing:.26em;color:var(--mu)}
-.status{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:5px 13px;border-radius:99px;background:var(--glass);border:1px solid var(--bd);font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--em)}
-h2{font-size:clamp(22px,6.6vw,29px);line-height:1.15;font-weight:800}
+.tag{font-size:8.5px;letter-spacing:.2em;color:var(--mu);margin-top:3px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:99px;background:var(--glass);border:1px solid var(--bd);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--em);white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--em);animation:pulse 1.6s infinite}
+.hero{text-align:center}
+.hero h2{font-size:clamp(21px,6.6vw,28px);line-height:1.15;font-weight:800}
 .grad{background:linear-gradient(90deg,var(--em),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--mu);font-size:13px;margin-top:6px}
-.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:3px 12px;margin-top:8px;font-size:10px;font-weight:700;letter-spacing:.06em;color:#cfe6dc}
+.hero p{color:var(--mu);font-size:12.5px;margin:7px auto 0;max-width:40ch}
+.trust{display:flex;justify-content:center;gap:5px 12px;flex-wrap:wrap;font-size:10px;font-weight:700;letter-spacing:.06em;color:#cfe6dc}
 .trust i{font-style:normal;color:var(--em);margin-right:3px}
-.glass{background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px}
-.count{padding:10px 14px 12px}
-.count .l{font-size:12px;color:var(--mu)}
-.num{font-size:44px;font-weight:800;line-height:1.1;background:linear-gradient(180deg,#fff,var(--em));-webkit-background-clip:text;background-clip:text;color:transparent}
-.num.tick{animation:pop .4s ease both}
-.dots{display:flex;justify-content:center;gap:7px;margin:2px 0 8px}
+.glass{background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 28px rgba(0,0,0,.35)}
+.count{border-radius:20px;padding:12px 16px 14px;text-align:center}
+.count .l{font-size:12px;color:var(--mu);letter-spacing:.05em}
+.num{font-size:44px;font-weight:800;line-height:1.1;background:linear-gradient(180deg,#fff,var(--em));-webkit-background-clip:text;background-clip:text;color:transparent;min-height:50px}
+.num.tick{animation:pop .4s both}
+.dots{display:flex;justify-content:center;gap:7px;margin:2px 0 9px}
 .dots b{width:7px;height:7px;border-radius:50%;background:rgba(16,242,160,.2);transition:.3s}
 .dots b.on{background:var(--em);box-shadow:0 0 8px var(--em)}
-.track{height:4px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
+.track{height:5px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
 .fill{height:100%;transform-origin:left;background:linear-gradient(90deg,var(--teal),var(--em));transform:scaleX(0)}
-.fb{display:none;padding:6px 0}
-.fb.show{display:block}
-.fb p{font-size:13px;margin-bottom:8px}
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.f{padding:9px 10px;display:flex;align-items:center;gap:8px;text-align:left;border-radius:16px}
-.f .ic{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;background:rgba(16,242,160,.12);box-shadow:0 0 10px rgba(16,242,160,.2)}
-.f b{display:block;font-size:10.5px;letter-spacing:.04em;line-height:1.2}
-.f span{font-size:10px;color:var(--mu);line-height:1.2;display:block}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;border-radius:99px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:.05em;color:#021510;background:linear-gradient(90deg,var(--em),var(--teal));animation:glow 3s ease-in-out infinite;transition:transform .2s}
+.fb{display:none}.fb.show{display:block}
+.fb p{font-size:13px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.card{border-radius:16px;padding:9px 10px;display:flex;gap:8px;align-items:center}
+.ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;background:radial-gradient(circle,rgba(16,242,160,.25),rgba(16,242,160,.05));flex:none}
+.card h3{font-size:9.5px;letter-spacing:.05em;font-weight:800}
+.card p{font-size:9.5px;color:var(--mu);line-height:1.25;margin-top:1px}
+.stats{border-radius:16px;padding:9px 6px 11px;display:grid;grid-template-columns:repeat(3,1fr);text-align:center;position:relative;overflow:hidden}
+.stats b{display:block;font-size:20px;font-weight:800;line-height:1.2}
+.stats small{font-size:8.5px;letter-spacing:.12em;color:var(--mu);font-weight:600}
+.stats .ln{position:absolute;left:0;bottom:0;height:2px;width:40%;background:linear-gradient(90deg,transparent,var(--em),var(--gold),transparent);animation:sweep 3.2s linear infinite}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;border:0;border-radius:99px;cursor:pointer;text-decoration:none;font-family:inherit;font-weight:800;font-size:15px;letter-spacing:.05em;color:#021510;background:linear-gradient(90deg,var(--em),var(--teal));animation:glow 3s ease-in-out infinite;transition:transform .2s}
 .btn:active{transform:scale(.97)}
 .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .btn.sm{min-height:46px;font-size:13px;animation:none}
-.disc{font-size:9.5px;color:var(--mu);line-height:1.35;padding:0 4px}
-.disc b{color:#cfe6dc;letter-spacing:.08em}
-.foot{font-size:9.5px;color:#5f7a6f;margin-top:4px}
-@media (max-height:700px){.logo{width:46px;height:46px;margin-bottom:4px}h1.name{font-size:25px}.sub{display:none}.num{font-size:36px}.f span{display:none}.btn{min-height:52px}}
-@media (max-height:600px){.feat{display:none}.status{margin-top:4px}}
+.disc{font-size:9.5px;color:var(--mu);text-align:center;line-height:1.35}
+.disc b{color:#cfe6dc;letter-spacing:.06em}
+.foot{text-align:center;font-size:9px;color:var(--mu)}
+@media(max-height:640px){.logo{width:38px;height:38px}.hero p{display:none}.num{font-size:36px;min-height:40px}.stats b{font-size:17px}.btn{min-height:52px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="bg" id="bg" aria-hidden="true"></div>
-<span class="live"><i class="dot"></i>LIVE</span>
-<main class="wrap">
+<main>
+  <header class="head">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 40 40" fill="none" stroke="#10f2a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30l9-9 6 5 13-14"/><path d="M26 12h8v8"/><circle cx="6" cy="30" r="2" fill="#10f2a0"/><circle cx="15" cy="21" r="2" fill="#10f2a0"/><circle cx="21" cy="26" r="2" fill="#10f2a0"/></svg>
+      </div>
+      <div><h1 class="name" id="brandName"></h1><div class="tag" id="brandTag"></div></div>
+    </div>
+    <span class="pill"><i class="dot"></i>CHANNEL ACTIVE NOW</span>
+  </header>
 
-<header>
-  <div class="logo" aria-hidden="true">
-    <svg width="30" height="30" viewBox="0 0 40 40" fill="none" stroke="#10f2a0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30l9-9 6 5 13-14"/><path d="M26 12h8v8"/><circle cx="6" cy="30" r="2" fill="#10f2a0"/><circle cx="15" cy="21" r="2" fill="#10f2a0"/><circle cx="21" cy="26" r="2" fill="#10f2a0"/></svg>
-  </div>
-  <h1 class="name" id="brandName"></h1>
-  <div class="tag" id="brandTag"></div>
-  <div class="status"><i class="dot"></i>CHANNEL ACTIVE NOW</div>
-</header>
+  <section class="hero">
+    <h2>Turn Your Free Time Into <span class="grad">Digital Opportunities</span></h2>
+    <p>Verified campaigns, referral opportunities and daily updates — all in one place.</p>
+  </section>
 
-<section>
-  <h2>Turn Your Free Time Into <span class="grad">Digital Opportunities</span></h2>
-  <p class="sub">Verified campaigns, referral opportunities and daily updates — all in one place.</p>
   <div class="trust"><span><i>✓</i>FREE TO JOIN</span><span><i>✓</i>VERIFIED UPDATES</span><span><i>✓</i>DAILY OPPORTUNITIES</span></div>
-</section>
 
-<section class="count glass" aria-live="polite">
-  <div id="cd">
-    <div class="l" id="cdText">Opening Telegram in 3s...</div>
-    <div class="num" id="num">3</div>
-    <div class="dots" id="dots"></div>
-    <div class="track"><div class="fill" id="fill"></div></div>
-  </div>
-  <div class="fb" id="fb">
-    <p>Telegram couldn't be opened automatically.</p>
-    <a class="btn sm" id="fbBtn" href="#" rel="noopener">OPEN TELEGRAM</a>
-  </div>
-</section>
+  <section class="count glass" aria-live="polite">
+    <div id="cd">
+      <div class="l" id="cdText">Opening Telegram in 3s...</div>
+      <div class="num" id="num">3</div>
+      <div class="dots" id="dots"></div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="fb" id="fb">
+      <p id="fbMsg">Telegram couldn't be opened automatically.</p>
+      <a class="btn sm" id="fbBtn" href="#" rel="noopener">OPEN TELEGRAM</a>
+    </div>
+  </section>
 
-<section class="feat" aria-label="Features">
-  <div class="f glass"><div class="ic">💰</div><div><b>ZERO JOINING FEE</b><span>No upfront joining fee</span></div></div>
-  <div class="f glass"><div class="ic">⚡</div><div><b>DAILY UPDATES</b><span>New campaigns & tasks</span></div></div>
-  <div class="f glass"><div class="ic">🔐</div><div><b>VERIFIED INFO</b><span>Via EWSHUB community</span></div></div>
-  <div class="f glass"><div class="ic">📈</div><div><b>DIGITAL OPPORTUNITIES</b><span>Referral & affiliate</span></div></div>
-</section>
+  <section class="grid" aria-label="Features">
+    <article class="card glass"><div class="ic">💰</div><div><h3>ZERO JOINING FEE</h3><p>No upfront joining fee.</p></div></article>
+    <article class="card glass"><div class="ic">⚡</div><div><h3>DAILY UPDATES</h3><p>New campaigns & tasks.</p></div></article>
+    <article class="card glass"><div class="ic">🔐</div><div><h3>VERIFIED INFO</h3><p>Updates via community.</p></div></article>
+    <article class="card glass"><div class="ic">📈</div><div><h3>OPPORTUNITIES</h3><p>Referral & online options.</p></div></article>
+  </section>
 
-<section>
+  <section class="stats glass" aria-label="Community stats">
+    <div><b class="grad" id="s1"></b><small>COMMUNITY</small></div>
+    <div><b class="grad" id="s2"></b><small>FREE TO JOIN</small></div>
+    <div><b class="grad" id="s3"></b><small>UPDATES</small></div>
+    <span class="ln"></span>
+  </section>
+
   <a class="btn" id="ctaBtn" href="#" rel="noopener"><span>✈️ JOIN EWSHUB TELEGRAM</span><span aria-hidden="true">➜</span></a>
-</section>
 
-<footer>
   <p class="disc"><b>🛡️ FREE TO JOIN.</b> Results and earnings can vary and are not guaranteed. Please research and verify any opportunity before participating.</p>
   <p class="foot">© 2026 <span id="fName"></span> · All rights reserved.</p>
-</footer>
 </main>
 
 <script>
 /* ============ CONFIG — edit only here ============ */
 const BRAND_NAME = "EWSHUB";
 const BRAND_TAGLINE = "YOUR DIGITAL OPPORTUNITY HUB";
-const TELEGRAM_URL = "https://t.me/Ewshub";
+const TELEGRAM_URL = "t.me/Ewshub";      // with or without https://
+const MEMBERS_COUNT = "5K+";
+const FREE_PERCENT = "100%";
+const UPDATE_TEXT = "24/7";
 const COUNTDOWN_SECONDS = 3;
+const SEND_MESSAGE = true;               // false = open Telegram without any prefilled text
+// Prefilled messages. They rotate one by one on each visit (same phone), after the last one it starts again.
+const MESSAGES = [
+  "I am interested - Zero Investment Work",
+  "Hi, I want to know more about zero investment work",
+  "Hello, please share the details of your opportunities",
+  "I saw your ad. Please send me the details",
+  "Interested in digital opportunities - how do I start?"
+];
 /* ================================================= */
 
 const $ = id => document.getElementById(id);
-const configured = /^https?:\/\//i.test(TELEGRAM_URL);
 
-$("brandName").innerHTML = BRAND_NAME.slice(0,3) + "<span>" + BRAND_NAME.slice(3) + "</span>";
-$("brandTag").textContent = BRAND_TAGLINE;
-$("fName").textContent = BRAND_NAME;
+// Normalise link + build final URL with the rotating message
+let base = TELEGRAM_URL.trim();
+if (!/^(https?:\/\/|tg:\/\/)/i.test(base)) base = "https://" + base;
+const configured = base.indexOf("YOUR_TELEGRAM_LINK") === -1 && /^(https?:\/\/|tg:\/\/)/i.test(base);
 
+function pickMessage(){
+  const n = MESSAGES.length; let i;
+  try{
+    const s = localStorage.getItem("ewshub_msg_i");
+    i = s === null ? Math.floor(Math.random() * n) : (parseInt(s, 10) + 1) % n;
+    localStorage.setItem("ewshub_msg_i", String(i));
+  }catch(e){ i = Math.floor(Math.random() * n); }
+  return MESSAGES[i];
+}
+const finalUrl = (SEND_MESSAGE && MESSAGES.length)
+  ? base + (base.indexOf("?") > -1 ? "&" : "?") + "text=" + encodeURIComponent(pickMessage())
+  : base;
+
+// Branding + stats
+const ews = BRAND_NAME.toUpperCase().startsWith("EWS") ? 3 : Math.ceil(BRAND_NAME.length / 2);
+$("brandName").innerHTML = BRAND_NAME.slice(0, ews) + "<span>" + BRAND_NAME.slice(ews) + "</span>";
+$("brandTag").textContent = BRAND_TAGLINE; $("fName").textContent = BRAND_NAME;
+$("s1").textContent = MEMBERS_COUNT; $("s2").textContent = FREE_PERCENT; $("s3").textContent = UPDATE_TEXT;
+
+// Subtle particles
 (function(){const bg=$("bg");for(let i=0;i<12;i++){const p=document.createElement("i");p.className="p";p.style.left=Math.random()*100+"%";p.style.animationDuration=(18+Math.random()*22)+"s";p.style.animationDelay=(-Math.random()*30)+"s";bg.appendChild(p)}})();
 
-let redirected = false, timers = [];
-[$("ctaBtn"),$("fbBtn")].forEach(a=>{ if(configured) a.href = TELEGRAM_URL; });
-
-function showFallback(){ $("cd").style.display="none"; $("fb").classList.add("show"); }
+// Links + redirect
+let redirected = false; const timers = [];
+[$("ctaBtn"), $("fbBtn")].forEach(a => { a.href = configured ? finalUrl : "#"; });
 function openTelegram(){
-  if(!configured || redirected) return;
-  redirected = true;
-  timers.forEach(clearTimeout);
-  window.location.href = TELEGRAM_URL;
-  // still visible after 2.5s => blocked, show fallback once (no repeat redirect)
-  setTimeout(()=>{ if(document.visibilityState==="visible") showFallback(); }, 2500);
+  if(!configured){ showFallback(true); return; }
+  if(redirected) return; redirected = true; timers.forEach(clearTimeout);
+  window.location.href = finalUrl;
+  setTimeout(() => { if(document.visibilityState === "visible"){ redirected = false; showFallback(false); } }, 2500);
 }
-$("ctaBtn").addEventListener("click", e=>{ e.preventDefault(); openTelegram(); });
-$("fbBtn").addEventListener("click", e=>{ e.preventDefault(); window.location.href = TELEGRAM_URL; });
+function showFallback(notConfigured){
+  $("cd").style.display = "none"; $("fb").classList.add("show");
+  if(notConfigured){ $("fbMsg").textContent = "Set TELEGRAM_URL in the config section to enable the redirect."; $("fbBtn").style.display = "none"; }
+}
+$("ctaBtn").addEventListener("click", e => { e.preventDefault(); openTelegram(); });
+$("fbBtn").addEventListener("click", e => { e.preventDefault(); redirected = false; window.location.href = finalUrl; });
 
+// Countdown (exactly COUNTDOWN_SECONDS, bar in sync)
 const total = COUNTDOWN_SECONDS, dots = $("dots");
 dots.innerHTML = "<b class='on'></b>".repeat(total);
 $("fill").style.animation = "bar " + total + "s linear forwards";
 function render(n){
-  $("num").textContent = n;
-  $("cdText").textContent = "Opening Telegram in " + n + "s...";
+  $("num").textContent = n; $("cdText").textContent = "Opening Telegram in " + n + "s...";
   $("num").classList.remove("tick"); void $("num").offsetWidth; $("num").classList.add("tick");
-  [...dots.children].forEach((d,i)=>d.classList.toggle("on", i < n));
+  [...dots.children].forEach((d, i) => d.classList.toggle("on", i < n));
 }
 render(total);
-for(let s=1; s<=total; s++){
-  timers.push(setTimeout(()=>{ s<total ? render(total-s) : openTelegram(); }, s*1000));
+for(let s = 1; s <= total; s++){
+  timers.push(setTimeout(() => { if(s < total) render(total - s); else openTelegram(); }, s * 1000));
 }
 </script>
 </body>
